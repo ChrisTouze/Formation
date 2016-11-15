@@ -14,26 +14,31 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="test 1"
-        android:id="@+id/test1" />
+        android:layout_height="0dp"
+        android:text="Show toast"
+        android:id="@+id/test1"
+        android:layout_weight="1"
+        />
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="test 2"
-        android:id="@+id/test2" />
+        android:id="@+id/test2"
+        android:layout_weight="1"/>
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="test 3"
-        android:id="@+id/test3" />
+        android:id="@+id/test3"
+        android:layout_weight="1"/>
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="test 4"
-        android:id="@+id/test4" />
+        android:id="@+id/test4"
+         android:layout_weight="1"/>
 
 
 
