@@ -8,37 +8,89 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context="com.example.chris.holdall.MainActivity">
-
-
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:text="Show toast"
-        android:id="@+id/test1"
-        android:layout_weight="1"
-        />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="Show toast"
+            android:id="@+id/test1"
+            android:layout_weight="1"
+            />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:text="test 2"
-        android:id="@+id/test2"
-        android:layout_weight="1"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="test 2"
+            android:id="@+id/test2"
+            android:layout_weight="1"/>
 
-    <Button
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="test 3"
+            android:id="@+id/test3"
+            android:layout_weight="1"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="test 4"
+            android:id="@+id/test4"
+            android:layout_weight="1"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="test 5"
+            android:id="@+id/test5"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:text="test 3"
-        android:id="@+id/test3"
-        android:layout_weight="1"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:text="test 4"
-        android:id="@+id/test4"
-         android:layout_weight="1"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="test 6"
+            android:id="@+id/test6"
+            android:layout_weight="1"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="test 7"
+            android:id="@+id/test7"
+            android:layout_weight="1"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="test 8"
+            android:id="@+id/test8"
+            android:layout_weight="1"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="test 9"
+            android:id="@+id/test9"
+            android:layout_weight="1"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="test 10"
+            android:id="@+id/test10"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
 
 
 
