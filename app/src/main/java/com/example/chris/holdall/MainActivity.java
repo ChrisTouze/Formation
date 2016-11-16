@@ -14,14 +14,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button test1 = (Button) findViewById(R.id.test1);
+        final Button test1 = (Button) findViewById(R.id.test1);
         Button test2 = (Button) findViewById(R.id.test2);
+        Button test3 = (Button)findViewById(R.id.test3);
 
         test1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MainActivity.this,"message",Toast.LENGTH_SHORT).show();
-
+                //test1.setText("test");
 
             }
         });
@@ -30,6 +31,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,PicassoActivity.class);
+                startActivity(intent);
+
+
+
+            }
+        });
+        test3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,PalindromActivity.class);
                 startActivity(intent);
 
 
