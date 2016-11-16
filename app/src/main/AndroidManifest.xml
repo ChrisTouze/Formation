@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".PicassoActivity" />
-        <activity android:name=".PalindromActivity"></activity>
+        <activity android:name=".PalindromActivity" />
     </application>
 
 </manifest>
