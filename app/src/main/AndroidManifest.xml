@@ -23,7 +23,8 @@
             android:name=".FiboActivity"
             android:label="@string/title_activity_fibo"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".CalcActivity"></activity>
+        <activity android:name=".CalcActivity" />
+        <activity android:name=".CalcHistoActivity"></activity>
     </application>
 
 </manifest>

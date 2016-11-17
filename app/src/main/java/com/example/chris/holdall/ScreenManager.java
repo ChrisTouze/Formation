@@ -5,7 +5,7 @@ package com.example.chris.holdall;
  */
 
 public class ScreenManager {
-    String screen;
+    private String screen;
 
     public ScreenManager() {
         this.screen = "0";

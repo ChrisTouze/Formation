@@ -1,10 +1,13 @@
 package com.example.chris.holdall;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.io.Serializable;
 
 public class CalcActivity extends AppCompatActivity {
 
@@ -17,6 +20,8 @@ public class CalcActivity extends AppCompatActivity {
         final CalcManager calcManager = new CalcManager();
 
         final TextView board = (TextView)findViewById(R.id.calc_screen);
+        final TextView operation = (TextView)findViewById(R.id.calc_operation);
+        Button histButton = (Button)findViewById(R.id.calc_histo_button);
         Button cButton = (Button)findViewById(R.id.calc_c_button);
         Button posButton = (Button)findViewById(R.id.calc_pos_button);
         Button negButton = (Button)findViewById(R.id.calc_neg_button);
@@ -65,11 +70,13 @@ public class CalcActivity extends AppCompatActivity {
                 board.setText(screen.updateScreen("5"));
             }
         });
+
         button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 board.setText(screen.updateScreen("6"));
             }
+
         });
         button7.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,6 +107,7 @@ public class CalcActivity extends AppCompatActivity {
             public void onClick(View view) {
                 screen.setScreen("0");
                 board.setText(screen.getScreen());
+                calcManager.init();
             }
         });
         pointButton.setOnClickListener(new View.OnClickListener() {
@@ -115,6 +123,8 @@ public class CalcActivity extends AppCompatActivity {
             public void onClick(View view) {
                 board.setText(calcManager.operation("+",board.getText().toString()));
                 screen.setScreen("0");
+                operation.setText(calcManager.getCurrentOperation());
+
             }
         });
         negButton.setOnClickListener(new View.OnClickListener() {
@@ -122,6 +132,7 @@ public class CalcActivity extends AppCompatActivity {
             public void onClick(View view) {
                 board.setText(calcManager.operation("-",board.getText().toString()));
                 screen.setScreen("0");
+                operation.setText(calcManager.getCurrentOperation());
             }
         });
         mulButton.setOnClickListener(new View.OnClickListener() {
@@ -129,6 +140,7 @@ public class CalcActivity extends AppCompatActivity {
             public void onClick(View view) {
                 board.setText(calcManager.operation("*",board.getText().toString()));
                 screen.setScreen("0");
+                operation.setText(calcManager.getCurrentOperation());
             }
         });
         divButton.setOnClickListener(new View.OnClickListener() {
@@ -136,6 +148,7 @@ public class CalcActivity extends AppCompatActivity {
             public void onClick(View view) {
                 board.setText(calcManager.operation("/",board.getText().toString()));
                 screen.setScreen("0");
+                operation.setText(calcManager.getCurrentOperation());
             }
         });
         equalButton.setOnClickListener(new View.OnClickListener() {
@@ -143,6 +156,17 @@ public class CalcActivity extends AppCompatActivity {
             public void onClick(View view) {
                 board.setText(calcManager.operation("=",board.getText().toString()));
                 screen.setScreen("0");
+                operation.setText(calcManager.getCurrentOperation());
+            }
+        });
+
+        histButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CalcActivity.this,CalcHistoActivity.class);
+                intent.putExtra("histo", calcManager);
+                startActivity(intent);
+
             }
         });
 
