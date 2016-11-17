@@ -42,7 +42,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="test 4"
+            android:text="Fibonnaci"
             android:id="@+id/test4"
             android:layout_weight="1"/>
         <Button
@@ -61,7 +61,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:text="test 6"
+            android:text="Calculatrice"
             android:id="@+id/test6"
             android:layout_weight="1"
             />

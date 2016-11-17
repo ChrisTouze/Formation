@@ -17,7 +17,8 @@ public class MainActivity extends AppCompatActivity {
         final Button test1 = (Button) findViewById(R.id.test1);
         Button test2 = (Button) findViewById(R.id.test2);
         Button test3 = (Button)findViewById(R.id.test3);
-
+        Button test4 = (Button)findViewById(R.id.test4);
+        Button test6 = (Button)findViewById(R.id.test6);
         test1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,13 +43,23 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,PalindromActivity.class);
                 startActivity(intent);
-
-
-
             }
         });
 
-
+        test4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,FiboActivity.class);
+                startActivity(intent);
+            }
+        });
+        test6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,CalcActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
