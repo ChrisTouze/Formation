@@ -6,9 +6,11 @@ package com.example.chris.holdall;
 
 public class ScreenManager {
     private String screen;
+    private String histo;
 
     public ScreenManager() {
         this.screen = "0";
+        this.histo = "";
     }
 
     public String getScreen() {
@@ -25,6 +27,11 @@ public class ScreenManager {
             screen = newChar;
         } else {
             screen += newChar;
+        }
+        histo+=newChar;
+        if (screen.length()>10) {
+            screen=screen.substring(0,10);
+
         }
         return screen;
     }

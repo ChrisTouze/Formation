@@ -1,13 +1,15 @@
 package com.example.chris.holdall;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.io.Serializable;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class CalcActivity extends AppCompatActivity {
 
@@ -28,7 +30,7 @@ public class CalcActivity extends AppCompatActivity {
         Button divButton = (Button)findViewById(R.id.calc_div_button);
         Button mulButton = (Button)findViewById(R.id.calc_mul_button);
         Button pointButton = (Button)findViewById(R.id.calc_point_button);
-        Button equalButton = (Button)findViewById(R.id.calc_equal_button);
+        final Button equalButton = (Button)findViewById(R.id.calc_equal_button);
         Button button0 = (Button)findViewById(R.id.calc_0_button);
         Button button1 = (Button)findViewById(R.id.calc_1_button);
         Button button2 = (Button)findViewById(R.id.calc_2_button);
@@ -44,30 +46,40 @@ public class CalcActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 board.setText(screen.updateScreen("1"));
+                operation.append("1");
+                buttonEffect((Button) view);
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 board.setText(screen.updateScreen("2"));
+                operation.append("2");
+                buttonEffect((Button) view);
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 board.setText(screen.updateScreen("3"));
+                operation.append("3");
+                buttonEffect((Button) view);
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 board.setText(screen.updateScreen("4"));
+                operation.append("4");
+                buttonEffect((Button) view);
             }
         });
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 board.setText(screen.updateScreen("5"));
+                operation.append("5");
+                buttonEffect((Button) view);
             }
         });
 
@@ -75,6 +87,8 @@ public class CalcActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 board.setText(screen.updateScreen("6"));
+                operation.append("6");
+                buttonEffect((Button) view);
             }
 
         });
@@ -82,24 +96,34 @@ public class CalcActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 board.setText(screen.updateScreen("7"));
+                operation.append("7");
+                buttonEffect((Button) view);
             }
         });
         button8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 board.setText(screen.updateScreen("8"));
+                operation.append("8");
+                buttonEffect((Button) view);
             }
         });
         button9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 board.setText(screen.updateScreen("9"));
+                operation.append("9");
+                buttonEffect((Button) view);
             }
         });
         button0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 board.setText(screen.updateScreen("0"));
+                if (!screen.getScreen().equals("0")) {
+                    operation.append("0");
+                }
+                buttonEffect((Button) view);
             }
         });
         cButton.setOnClickListener(new View.OnClickListener() {
@@ -108,6 +132,8 @@ public class CalcActivity extends AppCompatActivity {
                 screen.setScreen("0");
                 board.setText(screen.getScreen());
                 calcManager.init();
+                operation.setText("");
+                buttonEffect((Button) view);
             }
         });
         pointButton.setOnClickListener(new View.OnClickListener() {
@@ -116,6 +142,7 @@ public class CalcActivity extends AppCompatActivity {
                 if (!screen.getScreen().contains(".")) {
                     board.setText(screen.updateScreen("."));
                 }
+                buttonEffect((Button) view);
             }
         });
         posButton.setOnClickListener(new View.OnClickListener() {
@@ -125,6 +152,7 @@ public class CalcActivity extends AppCompatActivity {
                 screen.setScreen("0");
                 operation.setText(calcManager.getCurrentOperation());
 
+                buttonEffect((Button) view);
             }
         });
         negButton.setOnClickListener(new View.OnClickListener() {
@@ -133,6 +161,7 @@ public class CalcActivity extends AppCompatActivity {
                 board.setText(calcManager.operation("-",board.getText().toString()));
                 screen.setScreen("0");
                 operation.setText(calcManager.getCurrentOperation());
+                buttonEffect((Button) view);
             }
         });
         mulButton.setOnClickListener(new View.OnClickListener() {
@@ -140,6 +169,7 @@ public class CalcActivity extends AppCompatActivity {
             public void onClick(View view) {
                 board.setText(calcManager.operation("*",board.getText().toString()));
                 screen.setScreen("0");
+                buttonEffect((Button) view);
                 operation.setText(calcManager.getCurrentOperation());
             }
         });
@@ -149,15 +179,18 @@ public class CalcActivity extends AppCompatActivity {
                 board.setText(calcManager.operation("/",board.getText().toString()));
                 screen.setScreen("0");
                 operation.setText(calcManager.getCurrentOperation());
+                buttonEffect((Button) view);
             }
         });
+
         equalButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 board.setText(calcManager.operation("=",board.getText().toString()));
                 screen.setScreen("0");
-                operation.setText(calcManager.getCurrentOperation());
+                operation.setText(calcManager.getCurrentOperation()+" ");
             }
+
         });
 
         histButton.setOnClickListener(new View.OnClickListener() {
@@ -170,6 +203,31 @@ public class CalcActivity extends AppCompatActivity {
             }
         });
 
+
+
     }
+    public void buttonEffect (final Button view) {
+        view.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.calc_button_onclick)));
+
+        //final String tmp=view.getText().toString();
+        //view.setText(" ");
+
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+
+            @Override
+            public void run() {
+
+                runOnUiThread (new Thread(new Runnable() {
+                    public void run() {
+                        view.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.calc_button)));
+                        //view.setText(tmp);
+                    }
+                }));
+            }
+        }, 200);
+
+    }
+
 
 }

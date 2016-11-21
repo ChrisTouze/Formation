@@ -5,6 +5,8 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+import hugo.weaving.DebugLog;
+
 /**
  * Created by Chris on 17/11/2016.
  */
@@ -38,6 +40,7 @@ public class CalcManager implements java.io.Serializable  {
     public List<String> getOperationList() {
         return operationList;
     }
+
 
     public String operation(String operator, String screenValue) {
         String result;
@@ -83,6 +86,9 @@ public class CalcManager implements java.io.Serializable  {
             operationList.add(currentOperation);
             newOperation=true;
 
+        }
+        if (result.equals("Infinity")) {
+            result = "DIV BY 0 !!";
         }
         return result;
 

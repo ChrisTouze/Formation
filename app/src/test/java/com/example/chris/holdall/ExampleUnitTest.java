@@ -1,5 +1,6 @@
 package com.example.chris.holdall;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -14,4 +15,24 @@ public class ExampleUnitTest {
     public void addition_isCorrect() throws Exception {
         assertEquals(4, 2 + 2);
     }
+
+    CalcManager c;
+
+    @Test
+    public void shouldDoAdditionWhenUseEqual() {
+        c.operation("+","5");
+        String res=c.operation("=","4");
+        assertEquals(res, "9");
+    }
+    @Test
+    public void shouldDoSubstractionWhenUseOperator() {
+        c.operation("-","15");
+        String res=c.operation("+","5");
+        assertEquals(res, "10");
+    }
+    @Before
+    public void before(){
+        c = new CalcManager();
+    }
+
 }
