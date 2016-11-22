@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         Button test3 = (Button)findViewById(R.id.test3);
         Button test4 = (Button)findViewById(R.id.test4);
         Button test6 = (Button)findViewById(R.id.test6);
+        Button test7 = (Button)findViewById(R.id.test7);
         test1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,6 +61,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        test7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,FalseFlickr.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override

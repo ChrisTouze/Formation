@@ -24,7 +24,9 @@
             android:label="@string/title_activity_fibo"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CalcActivity" />
-        <activity android:name=".CalcHistoActivity"></activity>
+        <activity android:name=".CalcHistoActivity" />
+        <activity android:name=".FalseFlickr" />
+        <activity android:name=".FlickrDetails"></activity>
     </application>
 
 </manifest>
